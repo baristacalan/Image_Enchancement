@@ -45,32 +45,39 @@ python main.py
 
 The script will:
 
-Load the specified medical image.
-Preprocess and enhance the image based on the selected method (gamma correction or intensity stretching).
-Display the processed image using Matplotlib or Fiji (if installed).
-Save Processed Images: Enhanced images will be saved in photos/enchanced/ directory.
+### Load the specified medical image.
+### Preprocess and enhance the image based on the selected method (gamma correction or intensity stretching).
+### Display the processed image using Matplotlib or Fiji (if installed).
+### Save Processed Images: Enhanced images will be saved in photos/enchanced/ directory.
 
-Functions
+### Functions
 loadImage(image_path: Path): Loads an image from the specified path.
+
 preprocessImage(image: sitk.Image): Preprocesses the image by normalizing its intensity.
+
 enhanceImage(image: sitk.Image): Applies gamma correction or intensity stretching.
+
 showImage(image_list: list[sitk.Image], fiji_exists: bool = False): Displays images, optionally using Fiji if available.
+
 saveImage(image: sitk.Image, save_path: Path, image_io: str = 'JPEGImageIO'): Saves the image in the specified format.
-Example Code
+
+# Example Code
 To enhance an image and display it:
 
 from functions import loadImage, preprocessImage, enhanceImage, showImage
 from pathlib import Path
 
-# Load and preprocess image
+## Load and preprocess image
 image_path = Path("photos/default/2.png")
+
 image = loadImage(image_path)
+
 image = preprocessImage(image)
 
-# Enhance and show image
+## Enhance and show image
 image = enhanceImage(image)
 showImage([image], fiji_exists=False)
 
-Install dependencies with:
+### Install dependencies with:
 
 pip install -r requirements.txt
